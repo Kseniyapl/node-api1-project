@@ -58,13 +58,32 @@ server.post('/api/users', async (req, res )=>{
             res.status(201).json(newUser)
         }
     }catch(err){
-        res.status(400).json({
-            message:"Please provide name and bio for the user",
+        res.status(500).json({
+            message:"error getting users",
             error: err.message
         }) 
     } 
 })
-// | GET    | /api/users/:id | Returns the user object with the specified `id`.                                                       |
+// | GET    | /api/users/:id | Returns the user object with the specified `id`.  
+
+server.get('/api/users/:id', async(req, res)=>{
+    try{
+    const user = await User.findById(req.params.id)
+    if(!user){
+        res.status(404).json({
+            message: "The user with the specified ID does not exist"
+        })
+    }
+    else{
+        res.json(user)
+    }
+    }catch(err){
+        res.status(500).json({
+            message:"error getting users by id",
+            error: err.message
+        }) 
+    }
+})
 // | DELETE | /api/users/:id | Removes the user with the specified `id` and returns the deleted user.                                 |
 // | PUT    | /api/users/:id | Updates the user with the specified `id` using data from the `request body`. Returns the modified user |
 
