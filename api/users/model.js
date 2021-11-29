@@ -1,10 +1,12 @@
 // DO NOT MAKE CHANGES TO THIS FILE
 // DO NOT MAKE CHANGES TO THIS FILE
 // DO NOT MAKE CHANGES TO THIS FILE
-const { nanoid } = require('nanoid')
+//const { nanoid } = require('nanoid')
+
+const shortid = require('shortid')
 
 function getId() {
-  return nanoid().slice(0, 5)
+  return shortid().slice(0, 5)
 }
 
 const initializeUsers = () => ([
