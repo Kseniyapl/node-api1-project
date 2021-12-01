@@ -1,8 +1,3 @@
-// DO NOT MAKE CHANGES TO THIS FILE
-// DO NOT MAKE CHANGES TO THIS FILE
-// DO NOT MAKE CHANGES TO THIS FILE
-//const { nanoid } = require('nanoid')
-
 const shortid = require('shortid')
 
 function getId() {
@@ -14,14 +9,10 @@ const initializeUsers = () => ([
   { id: getId(), name: 'Mary Edwards', bio: 'super hero' },
 ])
 
-// FAKE IN-MEMORY USERS "TABLE"
 let users = initializeUsers()
 
-// DATABASE ACCESS FUNCTIONS
-// DATABASE ACCESS FUNCTIONS
-// DATABASE ACCESS FUNCTIONS
 const find = () => {
-  // SELECT * FROM users;
+ 
   return Promise.resolve(users)
 }
 
